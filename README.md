@@ -50,21 +50,21 @@ line of real code.
 
 ## Install
 
-**From the Marketplace** *(coming soon)*
-
-Search for **"Tree Scaffold"** in the Extensions panel, or:
-
-```
-ext install your-name.tree-scaffold
-```
-
-**From a `.vsix` file**
+**From a `.vsix` file** — grab the latest from the [Releases page](https://github.com/himanshu-here-code/tree-scaffold/releases/latest):
 
 ```bash
 code --install-extension tree-scaffold-0.1.0.vsix
 ```
 
 Or via the UI: **Extensions panel → ⋯ → Install from VSIX…**
+
+**From the Marketplace** *(coming soon)*
+
+Search for **"Tree Scaffold"** in the Extensions panel, or:
+
+```
+ext install himanshu-tools.tree-scaffold
+```
 
 ---
 
@@ -323,7 +323,7 @@ api/
 - [ ] Command-line version (`npx tree-scaffold tree.txt`)
 
 Vote for what you want next in the
-[Discussions](https://github.com/your-name/tree-scaffold/discussions) tab.
+[Discussions](https://github.com/himanshu-here-code/tree-scaffold/discussions) tab.
 
 ---
 
@@ -332,7 +332,7 @@ Vote for what you want next in the
 Issues and PRs welcome.
 
 ```bash
-git clone https://github.com/your-name/tree-scaffold
+git clone https://github.com/himanshu-here-code/tree-scaffold
 cd tree-scaffold
 npm install
 npm run compile
@@ -344,4 +344,4 @@ Press **F5** to launch the Extension Development Host.
 
 ## License
 
-[MIT](LICENSE) © your-name
+[MIT](LICENSE) © Himanshu
