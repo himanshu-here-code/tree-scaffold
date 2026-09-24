@@ -1,0 +1,28 @@
+# Source files — not needed at runtime
+src/**
+tsconfig.json
+
+# Dev config
+.vscode/**
+.vscode-test/**
+
+# Build artifacts we don't ship
+out/**/*.map
+**/*.ts
+
+# Node modules (bundled by default, but be explicit)
+node_modules/**
+
+# Everything VS Code / git related
+.gitignore
+.eslintrc*
+.prettierrc*
+.editorconfig
+.github/**
+
+# Local build outputs
+*.vsix
+
+# Dev-only docs
+CHANGELOG.md
+images/icon-original.png

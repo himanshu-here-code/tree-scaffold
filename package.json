@@ -1,0 +1,149 @@
+{
+  "name": "tree-scaffold",
+  "displayName": "Tree Scaffold",
+  "description": "Create folder and file structures from ASCII/Unicode tree text. Includes preview, undo, and starter templates.",
+  "version": "0.1.0",
+  "publisher": "himanshu-tools",
+  "author": {
+    "name": "Himanshu"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "tree",
+    "scaffold",
+    "folder",
+    "structure",
+    "generate",
+    "boilerplate",
+    "ascii"
+  ],
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/himanshu-here-code/tree-scaffold"
+  },
+  "bugs": {
+    "url": "https://github.com/himanshu-here-code/tree-scaffold/issues"
+  },
+  "homepage": "https://github.com/himanshu-here-code/tree-scaffold#readme",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "treeScaffold.fromSelection",
+        "title": "Tree Scaffold: Create from Selection",
+        "category": "Tree Scaffold"
+      },
+      {
+        "command": "treeScaffold.fromClipboard",
+        "title": "Tree Scaffold: Create from Clipboard",
+        "category": "Tree Scaffold"
+      },
+      {
+        "command": "treeScaffold.fromFile",
+        "title": "Tree Scaffold: Create from File…",
+        "category": "Tree Scaffold"
+      },
+      {
+        "command": "treeScaffold.intoFolder",
+        "title": "Tree Scaffold: Create into This Folder (from Clipboard)",
+        "category": "Tree Scaffold"
+      },
+      {
+        "command": "treeScaffold.undoLast",
+        "title": "Tree Scaffold: Undo Last Run",
+        "category": "Tree Scaffold"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "treeScaffold.fromSelection",
+          "when": "editorHasSelection",
+          "group": "navigation@90"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "treeScaffold.intoFolder",
+          "group": "navigation@90"
+        },
+        {
+          "command": "treeScaffold.fromFile",
+          "group": "navigation@91"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "treeScaffold.intoFolder",
+          "when": "false"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "treeScaffold.fromSelection",
+        "key": "ctrl+alt+t",
+        "mac": "cmd+alt+t",
+        "when": "editorHasSelection"
+      },
+      {
+        "command": "treeScaffold.fromClipboard",
+        "key": "ctrl+alt+shift+t",
+        "mac": "cmd+alt+shift+t"
+      }
+    ],
+    "configuration": {
+      "title": "Tree Scaffold",
+      "properties": {
+        "treeScaffold.targetFolder": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Absolute path where the tree is created. Leave empty to use the workspace root.\n\nExample: `/Users/you/Projects/my-app`"
+        },
+        "treeScaffold.overwrite": {
+          "type": "boolean",
+          "default": false,
+          "description": "Overwrite existing files instead of skipping them."
+        },
+        "treeScaffold.useTemplates": {
+          "type": "boolean",
+          "default": true,
+          "description": "Write starter content into known file types (.html, .css, .js, .ts, .swift, .md, .json, …)."
+        },
+        "treeScaffold.customFileContent": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "If set, this exact content is written to **every** created file (overrides templates)."
+        },
+        "treeScaffold.confirmBeforeCreate": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a confirmation dialog after the plan preview before writing to disk."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.24.0",
+    "typescript": "^5.4.0"
+  }
+}
